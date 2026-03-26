@@ -218,7 +218,7 @@ export default function HistoricWalkingTourPage() {
           1. HERO — bright Main Street image, left-aligned editorial overlay
       ════════════════════════════════════════════════════════════════════ */}
       <section
-        className="relative min-h-[100dvh] flex items-end"
+        className="relative min-h-[65vh] flex items-end"
         aria-label="Historic Walking Tour Hero"
       >
         <Image
@@ -230,21 +230,12 @@ export default function HistoricWalkingTourPage() {
           sizes="100vw"
         />
 
-        {/* Overlay — navy-tinted, stronger at bottom for text legibility */}
+        {/* Directional overlay — heavier at bottom-left for text, fades top-right */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(17,29,51,0.25) 0%, rgba(17,29,51,0.45) 45%, rgba(17,29,51,0.85) 100%)",
-          }}
-          aria-hidden="true"
-        />
-        {/* Left darkening for editorial text column */}
-        <div
-          className="absolute inset-0 hidden lg:block"
-          style={{
-            background:
-              "linear-gradient(90deg, rgba(17,29,51,0.6) 0%, transparent 55%)",
+              "linear-gradient(135deg, rgba(17,29,51,0.82) 0%, rgba(17,29,51,0.5) 50%, rgba(17,29,51,0.18) 100%)",
           }}
           aria-hidden="true"
         />
@@ -1571,7 +1562,7 @@ export default function HistoricWalkingTourPage() {
                 color: "#7A5820",
               }}
             >
-              Also Loved by Walking Tour Guests
+              Two more ways to know Franklin
             </span>
             <h2
               className="text-2xl md:text-3xl font-bold leading-tight"
@@ -1623,11 +1614,9 @@ export default function HistoricWalkingTourPage() {
                         <span
                           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] uppercase tracking-[0.18em] font-semibold"
                           style={{
-                            backgroundColor: "rgba(17, 29, 51, 0.75)",
+                            backgroundColor: "rgba(17, 29, 51, 0.85)",
                             color: "#C8963E",
                             border: "1px solid rgba(200, 150, 62, 0.25)",
-                            backdropFilter: "blur(8px)",
-                            WebkitBackdropFilter: "blur(8px)",
                             fontFamily:
                               "var(--font-source-sans), 'Source Sans 3', sans-serif",
                           }}

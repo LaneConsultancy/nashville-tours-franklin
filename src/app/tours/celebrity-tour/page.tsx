@@ -322,7 +322,7 @@ export default function CelebrityTourPage() {
       ══════════════════════════════════════════════════════════════════════ */}
       <section
         className="relative overflow-hidden"
-        style={{ minHeight: "92dvh" }}
+        style={{ minHeight: "65vh" }}
         aria-label="Celebrity Tour Hero"
       >
         <Image
@@ -334,29 +334,19 @@ export default function CelebrityTourPage() {
           sizes="100vw"
         />
 
-        {/* Directional overlay — deep at bottom-left, fades top-right */}
+        {/* Directional overlay — heavier at bottom-left for text, fades top-right */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(160deg, rgba(17,29,51,0.25) 0%, rgba(17,29,51,0.55) 40%, rgba(17,29,51,0.88) 100%)",
-          }}
-          aria-hidden="true"
-        />
-
-        {/* Bottom edge blend into page */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-28"
-          style={{
-            background:
-              "linear-gradient(to top, #FAFAF7 0%, transparent 100%)",
+              "linear-gradient(135deg, rgba(17,29,51,0.85) 0%, rgba(17,29,51,0.5) 50%, rgba(17,29,51,0.15) 100%)",
           }}
           aria-hidden="true"
         />
 
         {/* Hero content */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 flex flex-col justify-end pb-20 pt-40"
-          style={{ minHeight: "92dvh" }}
+          style={{ minHeight: "65vh" }}
         >
           {/* Eyebrow */}
           <div className="mb-5">
@@ -461,11 +451,10 @@ export default function CelebrityTourPage() {
                 key={stat.label}
                 className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-medium"
                 style={{
-                  backgroundColor: "rgba(245, 240, 232, 0.1)",
+                  backgroundColor: "rgba(17, 29, 51, 0.6)",
                   border: "1px solid rgba(245, 240, 232, 0.2)",
                   color: "rgba(245, 240, 232, 0.85)",
                   fontFamily: "var(--font-source-sans), 'Source Sans 3', sans-serif",
-                  backdropFilter: "blur(4px)",
                   letterSpacing: "0.02em",
                 }}
               >
@@ -899,8 +888,7 @@ export default function CelebrityTourPage() {
                   <div
                     className="absolute bottom-5 left-5 right-5 rounded-xl px-5 py-4"
                     style={{
-                      backgroundColor: "rgba(17, 29, 51, 0.82)",
-                      backdropFilter: "blur(8px)",
+                      backgroundColor: "rgba(17, 29, 51, 0.92)",
                       border: "1px solid rgba(245, 240, 232, 0.1)",
                     }}
                   >
@@ -1407,7 +1395,7 @@ export default function CelebrityTourPage() {
                 color: "#7A5820",
               }}
             >
-              Also Loved by Celebrity Tour Guests
+              Two more ways to know Franklin
             </p>
             <h2
               id="related-tours-heading"

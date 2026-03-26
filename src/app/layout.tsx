@@ -192,8 +192,6 @@ export default function RootLayout({
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-        {/* Subtle editorial grain overlay — physical paper texture, purely decorative */}
-        <div aria-hidden="true" className="grain-overlay" />
         <Header />
         <main id="main-content" className="flex-1">{children}</main>
         <Footer />

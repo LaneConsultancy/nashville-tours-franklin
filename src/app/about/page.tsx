@@ -626,7 +626,7 @@ export default function AboutPage() {
                     color: "#C8963E",
                   }}
                 >
-                  Ready to Explore Franklin?
+                  Your Franklin Story Starts Here.
                 </p>
                 <h2
                   className="text-3xl md:text-4xl font-bold leading-[1.15] mb-4"

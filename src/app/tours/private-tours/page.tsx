@@ -344,7 +344,7 @@ export default function PrivateToursPage() {
       ══════════════════════════════════════════════════════════════════════ */}
       <section
         className="relative overflow-hidden"
-        style={{ minHeight: "92dvh" }}
+        style={{ minHeight: "65vh" }}
         aria-label="Private Tours Hero"
       >
         <Image
@@ -356,21 +356,12 @@ export default function PrivateToursPage() {
           sizes="100vw"
         />
 
-        {/* Overlay — heavier at bottom, preserves mid-image visibility */}
+        {/* Directional overlay — heavier at bottom-left for text, fades top-right */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(170deg, rgba(17,29,51,0.3) 0%, rgba(17,29,51,0.65) 50%, rgba(17,29,51,0.9) 100%)",
-          }}
-          aria-hidden="true"
-        />
-
-        {/* Bottom blend */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-28"
-          style={{
-            background: "linear-gradient(to top, #FAFAF7 0%, transparent 100%)",
+              "linear-gradient(135deg, rgba(17,29,51,0.85) 0%, rgba(17,29,51,0.5) 50%, rgba(17,29,51,0.15) 100%)",
           }}
           aria-hidden="true"
         />
@@ -378,7 +369,7 @@ export default function PrivateToursPage() {
         {/* Hero content */}
         <div
           className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 flex flex-col justify-end pb-20 pt-40"
-          style={{ minHeight: "92dvh" }}
+          style={{ minHeight: "65vh" }}
         >
           {/* Eyebrow */}
           <div className="mb-5">
@@ -482,11 +473,10 @@ export default function PrivateToursPage() {
                 key={stat.label}
                 className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-medium"
                 style={{
-                  backgroundColor: "rgba(245, 240, 232, 0.1)",
+                  backgroundColor: "rgba(17, 29, 51, 0.6)",
                   border: "1px solid rgba(245, 240, 232, 0.2)",
                   color: "rgba(245, 240, 232, 0.85)",
                   fontFamily: "var(--font-source-sans), 'Source Sans 3', sans-serif",
-                  backdropFilter: "blur(4px)",
                   letterSpacing: "0.02em",
                 }}
               >

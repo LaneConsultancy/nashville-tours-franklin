@@ -115,10 +115,8 @@ export default function Header() {
         style={{
           transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
           backgroundColor: isScrolled
-            ? "rgba(27, 42, 74, 0.97)"
-            : "rgba(27, 42, 74, 0.92)",
-          backdropFilter: isScrolled ? "blur(12px)" : "blur(8px)",
-          WebkitBackdropFilter: isScrolled ? "blur(12px)" : "blur(8px)",
+            ? "rgba(27, 42, 74, 0.98)"
+            : "rgba(27, 42, 74, 0.85)",
           borderBottom: isScrolled
             ? "1px solid rgba(200, 150, 62, 0.15)"
             : "1px solid transparent",
@@ -392,8 +390,6 @@ export default function Header() {
         className="fixed inset-0 z-30 lg:hidden flex flex-col"
         style={{
           backgroundColor: "rgba(17, 29, 51, 0.98)",
-          backdropFilter: "blur(16px)",
-          WebkitBackdropFilter: "blur(16px)",
           opacity: isMobileOpen ? 1 : 0,
           pointerEvents: isMobileOpen ? "auto" : "none",
           transition: "opacity 0.4s cubic-bezier(0.32, 0.72, 0, 1)",

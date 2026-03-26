@@ -210,7 +210,7 @@ export default function FoodTourPage() {
           1. HERO — warm food spread image, editorial left-anchored overlay
       ════════════════════════════════════════════════════════════════════ */}
       <section
-        className="relative min-h-[100dvh] flex items-end"
+        className="relative min-h-[65vh] flex items-end"
         aria-label="Food Tour Hero"
       >
         <Image
@@ -222,21 +222,12 @@ export default function FoodTourPage() {
           sizes="100vw"
         />
 
-        {/* Warm, rich overlay — deeper at bottom for text, lighter at top */}
+        {/* Directional overlay — heavier at bottom-left for text, fades top-right */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(10,16,35,0.2) 0%, rgba(10,16,35,0.45) 40%, rgba(10,16,35,0.88) 100%)",
-          }}
-          aria-hidden="true"
-        />
-        {/* Left darkening for editorial text column */}
-        <div
-          className="absolute inset-0 hidden lg:block"
-          style={{
-            background:
-              "linear-gradient(90deg, rgba(10,16,35,0.65) 0%, transparent 55%)",
+              "linear-gradient(135deg, rgba(10,16,35,0.85) 0%, rgba(10,16,35,0.5) 50%, rgba(10,16,35,0.18) 100%)",
           }}
           aria-hidden="true"
         />
@@ -1449,7 +1440,7 @@ export default function FoodTourPage() {
                 color: "#7A5820",
               }}
             >
-              Also Loved by Food Tour Guests
+              Two more ways to know Franklin
             </span>
             <h2
               className="text-2xl md:text-3xl font-bold leading-tight"
@@ -1501,11 +1492,9 @@ export default function FoodTourPage() {
                         <span
                           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] uppercase tracking-[0.18em] font-semibold"
                           style={{
-                            backgroundColor: "rgba(17, 29, 51, 0.75)",
+                            backgroundColor: "rgba(17, 29, 51, 0.85)",
                             color: "#C8963E",
                             border: "1px solid rgba(200, 150, 62, 0.25)",
-                            backdropFilter: "blur(8px)",
-                            WebkitBackdropFilter: "blur(8px)",
                             fontFamily:
                               "var(--font-source-sans), 'Source Sans 3', sans-serif",
                           }}

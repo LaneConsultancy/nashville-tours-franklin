@@ -219,7 +219,7 @@ export default function GhostTourPage() {
           1. HERO — Full-width twilight image, editorial left-anchored overlay
       ════════════════════════════════════════════════════════════════════ */}
       <section
-        className="relative min-h-[100dvh] flex items-end"
+        className="relative min-h-[65vh] flex items-end"
         aria-label="Ghost Tour Hero"
       >
         <Image
@@ -231,21 +231,12 @@ export default function GhostTourPage() {
           sizes="100vw"
         />
 
-        {/* Rich multi-layer dark overlay — night atmosphere */}
+        {/* Directional overlay — deep at bottom-left for text, fades top-right */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(10,16,35,0.45) 0%, rgba(10,16,35,0.55) 40%, rgba(10,16,35,0.88) 100%)",
-          }}
-          aria-hidden="true"
-        />
-        {/* Left-side darkening for text legibility */}
-        <div
-          className="absolute inset-0 hidden lg:block"
-          style={{
-            background:
-              "linear-gradient(90deg, rgba(10,16,35,0.55) 0%, transparent 60%)",
+              "linear-gradient(135deg, rgba(10,16,35,0.82) 0%, rgba(10,16,35,0.55) 50%, rgba(10,16,35,0.25) 100%)",
           }}
           aria-hidden="true"
         />
@@ -1385,7 +1376,7 @@ export default function GhostTourPage() {
                 color: "#7A5820",
               }}
             >
-              Also Loved by Ghost Tour Guests
+              Two more ways to know Franklin
             </span>
             <h2
               className="text-2xl md:text-3xl font-bold leading-tight"
@@ -1441,11 +1432,9 @@ export default function GhostTourPage() {
                         <span
                           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] uppercase tracking-[0.18em] font-semibold"
                           style={{
-                            backgroundColor: "rgba(17, 29, 51, 0.75)",
+                            backgroundColor: "rgba(17, 29, 51, 0.85)",
                             color: "#C8963E",
                             border: "1px solid rgba(200, 150, 62, 0.25)",
-                            backdropFilter: "blur(8px)",
-                            WebkitBackdropFilter: "blur(8px)",
                             fontFamily:
                               "var(--font-source-sans), 'Source Sans 3', sans-serif",
                           }}

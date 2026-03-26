@@ -292,7 +292,7 @@ export default function HomePage() {
           content sits hard-left with a vertical accent line.
       ════════════════════════════════════════════════════════════════════ */}
       <section
-        className="relative min-h-[100dvh] flex items-end lg:items-center overflow-hidden"
+        className="relative min-h-[70vh] flex items-end lg:items-center overflow-hidden"
         aria-label="Hero"
       >
         {/* Background image — fills full section */}
@@ -305,22 +305,12 @@ export default function HomePage() {
           sizes="100vw"
         />
 
-        {/* Dark overlay — heavier at left, lighter at right */}
+        {/* Directional overlay — heavier at left for text legibility, fades right */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(105deg, rgba(17,29,51,0.88) 0%, rgba(17,29,51,0.72) 50%, rgba(17,29,51,0.35) 100%)",
-          }}
-          aria-hidden="true"
-        />
-
-        {/* Bottom vignette for breathing room */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-32"
-          style={{
-            background:
-              "linear-gradient(to top, rgba(17,29,51,0.5) 0%, transparent 100%)",
+              "linear-gradient(105deg, rgba(17,29,51,0.88) 0%, rgba(17,29,51,0.45) 60%, rgba(17,29,51,0.15) 100%)",
           }}
           aria-hidden="true"
         />
@@ -671,11 +661,9 @@ export default function HomePage() {
                         <span
                           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] uppercase tracking-[0.18em] font-semibold"
                           style={{
-                            backgroundColor: "rgba(17, 29, 51, 0.75)",
+                            backgroundColor: "rgba(17, 29, 51, 0.85)",
                             color: "#C8963E",
                             border: "1px solid rgba(200, 150, 62, 0.25)",
-                            backdropFilter: "blur(8px)",
-                            WebkitBackdropFilter: "blur(8px)",
                             fontFamily:
                               "var(--font-source-sans), 'Source Sans 3', sans-serif",
                           }}
@@ -1404,7 +1392,7 @@ export default function HomePage() {
                 letterSpacing: "-0.025em",
               }}
             >
-              Ready to See Franklin Properly?
+              Franklin Has Been Waiting.
             </h2>
 
             <p

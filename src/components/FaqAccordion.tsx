@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { PlusIcon, MinusIcon } from "@phosphor-icons/react";
+import { CaretDownIcon } from "@phosphor-icons/react";
 
 interface FaqItem {
   question: string;
@@ -49,21 +49,45 @@ export default function FaqAccordion() {
   };
 
   return (
-    <div className="divide-y" style={{ borderColor: "rgba(27, 42, 74, 0.1)" }}>
+    <div>
       {faqs.map((faq, i) => {
         const isOpen = openIndex === i;
+        const number = String(i + 1).padStart(2, "0");
+
         return (
-          <div key={i}>
+          <div
+            key={i}
+            style={{
+              borderLeft: isOpen
+                ? "3px solid #C8963E"
+                : "3px solid transparent",
+              transition: "border-color 0.3s cubic-bezier(0.32, 0.72, 0, 1)",
+              marginBottom: "2px",
+            }}
+          >
             <button
               onClick={() => toggle(i)}
               aria-expanded={isOpen}
-              className="w-full flex items-start justify-between gap-6 py-6 text-left group"
-              style={{
-                cursor: "pointer",
-              }}
+              className="w-full flex items-start gap-5 py-5 pl-5 pr-3 text-left"
+              style={{ cursor: "pointer" }}
             >
+              {/* Number */}
               <span
-                className="text-base md:text-lg font-semibold leading-snug"
+                className="shrink-0 text-sm font-bold tabular-nums leading-snug mt-0.5"
+                style={{
+                  fontFamily:
+                    "var(--font-source-sans), 'Source Sans 3', sans-serif",
+                  color: isOpen ? "#C8963E" : "rgba(200, 150, 62, 0.5)",
+                  transition: "color 0.3s cubic-bezier(0.32, 0.72, 0, 1)",
+                  minWidth: "28px",
+                }}
+              >
+                {number}
+              </span>
+
+              {/* Question */}
+              <span
+                className="flex-1 text-base md:text-lg font-semibold leading-snug"
                 style={{
                   fontFamily:
                     "var(--font-playfair), 'Playfair Display', serif",
@@ -73,23 +97,22 @@ export default function FaqAccordion() {
               >
                 {faq.question}
               </span>
+
+              {/* Chevron */}
               <span
-                className="shrink-0 mt-0.5 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300"
+                className="shrink-0 mt-1"
                 style={{
-                  backgroundColor: isOpen
-                    ? "#C8963E"
-                    : "rgba(27, 42, 74, 0.08)",
-                  color: isOpen ? "#fff" : "#1B2A4A",
-                  transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)",
+                  color: isOpen ? "#C8963E" : "rgba(27, 42, 74, 0.4)",
+                  transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+                  transition: "transform 0.3s cubic-bezier(0.32, 0.72, 0, 1), color 0.3s cubic-bezier(0.32, 0.72, 0, 1)",
+                  display: "inline-flex",
                 }}
               >
-                {isOpen ? (
-                  <MinusIcon weight="bold" size={13} />
-                ) : (
-                  <PlusIcon weight="bold" size={13} />
-                )}
+                <CaretDownIcon weight="bold" size={15} />
               </span>
             </button>
+
+            {/* Answer */}
             <div
               style={{
                 maxHeight: isOpen ? "400px" : "0",
@@ -98,12 +121,13 @@ export default function FaqAccordion() {
               }}
             >
               <p
-                className="pb-6 text-base leading-relaxed"
+                className="pb-5 pl-5 pr-4 text-base leading-relaxed"
                 style={{
                   fontFamily:
                     "var(--font-source-sans), 'Source Sans 3', sans-serif",
                   color: "#6b6456",
                   maxWidth: "72ch",
+                  paddingLeft: "calc(28px + 20px + 20px)",
                 }}
               >
                 {faq.answer}
