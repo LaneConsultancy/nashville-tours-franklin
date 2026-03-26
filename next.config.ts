@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  turbopack: {
+    // Explicitly set the root to avoid lockfile detection warnings
+    root: path.resolve(__dirname),
+  },
 };
 
 export default nextConfig;

@@ -4,127 +4,437 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ─── Brand Design Tokens ───────────────────────────────────────────────────── */
+/* Note: Google Fonts (Playfair Display + Source Sans 3) are loaded via
+   next/font/google in src/app/layout.tsx — no @import needed here */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
+  /* Typography */
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: "Source Sans 3", system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, "JetBrains Mono", monospace;
+
+  /* Brand Colors */
+  --color-navy:         #1B2A4A;
+  --color-navy-dark:    #111d33;
+  --color-navy-light:   #243558;
+  --color-gold:         #C8963E;
+  --color-gold-light:   #d9aa5a;
+  --color-gold-dark:    #a87830;
+  /* Darker gold for small (≤12px) text on light backgrounds — passes WCAG AA 4.5:1 against cream and warm-white */
+  /* #7A5820 achieves ~5.1:1 contrast against #F5F0E8 cream, clearing the 4.5:1 AA threshold at all sizes */
+  --color-gold-accessible: #7A5820;
+  --color-cream:        #F5F0E8;
+  --color-cream-dark:   #ede6d8;
+  --color-charcoal:     #2D2D2D;
+  --color-warm-white:   #FAFAF7;
+
+  /* ShadCN semantic tokens mapped to brand palette */
+  --color-background:          var(--background);
+  --color-foreground:          var(--foreground);
+  --color-primary:             var(--primary);
+  --color-primary-foreground:  var(--primary-foreground);
+  --color-secondary:           var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
+  --color-accent:              var(--accent);
+  --color-accent-foreground:   var(--accent-foreground);
+  --color-muted:               var(--muted);
+  --color-muted-foreground:    var(--muted-foreground);
+  --color-card:                var(--card);
+  --color-card-foreground:     var(--card-foreground);
+  --color-popover:             var(--popover);
+  --color-popover-foreground:  var(--popover-foreground);
+  --color-border:              var(--border);
+  --color-input:               var(--input);
+  --color-ring:                var(--ring);
+  --color-destructive:         var(--destructive);
+
+  /* Radius scale */
+  --radius-sm:  calc(var(--radius) * 0.6);
+  --radius-md:  calc(var(--radius) * 0.8);
+  --radius-lg:  var(--radius);
+  --radius-xl:  calc(var(--radius) * 1.4);
   --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Sidebar tokens */
+  --color-sidebar-ring:               var(--sidebar-ring);
+  --color-sidebar-border:             var(--sidebar-border);
+  --color-sidebar-accent-foreground:  var(--sidebar-accent-foreground);
+  --color-sidebar-accent:             var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary:            var(--sidebar-primary);
+  --color-sidebar-foreground:         var(--sidebar-foreground);
+  --color-sidebar:                    var(--sidebar);
 }
 
+/* ─── CSS Custom Properties (brand palette exposed as CSS vars) ──────────────── */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* Semantic ShadCN mappings — warm white base */
+  --background:           #FAFAF7;
+  --foreground:           #2D2D2D;
+  --card:                 #FAFAF7;
+  --card-foreground:      #2D2D2D;
+  --popover:              #FAFAF7;
+  --popover-foreground:   #2D2D2D;
+  --primary:              #1B2A4A;
+  --primary-foreground:   #F5F0E8;
+  --secondary:            #F5F0E8;
+  --secondary-foreground: #1B2A4A;
+  --muted:                #ede6d8;
+  --muted-foreground:     #6b6456;
+  --accent:               #C8963E;
+  --accent-foreground:    #1B2A4A;
+  --destructive:          oklch(0.577 0.245 27.325);
+  --border:               #e0d9cc;
+  --input:                #e0d9cc;
+  --ring:                 #C8963E;
+  --radius:               0.625rem;
+
+  /* Sidebar */
+  --sidebar:                    #F5F0E8;
+  --sidebar-foreground:         #2D2D2D;
+  --sidebar-primary:            #1B2A4A;
+  --sidebar-primary-foreground: #F5F0E8;
+  --sidebar-accent:             #ede6d8;
+  --sidebar-accent-foreground:  #1B2A4A;
+  --sidebar-border:             #e0d9cc;
+  --sidebar-ring:               #C8963E;
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-}
-
+/* ─── Base Layer ─────────────────────────────────────────────────────────────── */
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    box-sizing: border-box;
   }
+
+  html {
+    font-family: "Source Sans 3", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
+    background-color: #FAFAF7;
+    color: #2D2D2D;
+    font-family: "Source Sans 3", system-ui, -apple-system, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 400;
   }
-  html {
-    @apply font-sans;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: #1B2A4A;
   }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+}
+
+/* ─── Utility Classes ────────────────────────────────────────────────────────── */
+@layer utilities {
+  .font-heading {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  }
+
+  .font-body {
+    font-family: "Source Sans 3", system-ui, -apple-system, sans-serif;
+  }
+
+  /* Gold underline accent — used on section headings */
+  .heading-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .heading-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.25rem;
+    width: 3rem;
+    height: 2px;
+    background-color: #C8963E;
+  }
+
+  /* Transition preset — cubic-bezier for all interactive elements */
+  .transition-premium {
+    transition: all 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  /* Grain overlay — fixed, pointer-events-none */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 128px 128px;
+    mix-blend-mode: multiply;
+  }
+}
+
+/* ─── AnimateOnScroll — additive scroll polish ───────────────────────────── */
+/*
+ * Safety contract: .aos-element renders fully visible by default.
+ * The animation is purely additive — it never hides content.
+ * Only when JS fires and data-animate-ready is set do we enable
+ * the will-change hint, and only when .aos-in is added does the
+ * subtle entrance movement play.
+ */
+
+.aos-element {
+  /* Default state: fully visible, no transform. Safe with no JS. */
+}
+
+/* Only add will-change once JS confirms the observer is ready */
+.aos-element[data-animate-ready="true"] {
+  will-change: transform;
+}
+
+/* The actual entrance movement — triggered by JS adding .aos-in */
+.aos-element[data-animate-ready="true"].aos-in {
+  animation: aos-entrance 0.55s cubic-bezier(0.32, 0.72, 0, 1) both;
+  will-change: auto; /* release hint once animation completes */
+}
+
+@keyframes aos-entrance {
+  from {
+    transform: translateY(14px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Respect prefers-reduced-motion — animation already skipped in JS,
+   but this CSS rule ensures no flash if JS runs slightly late */
+@media (prefers-reduced-motion: reduce) {
+  .aos-element[data-animate-ready="true"].aos-in {
+    animation: none;
+  }
+}
+
+/* ─── Tour Card hover effects ─────────────────────────────────────────────── */
+/*
+ * Applied to the outer shell div of each tour card.
+ * Uses CSS-only transitions — no JS. GPU-safe (transform + opacity only).
+ */
+
+.tour-card-shell {
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1),
+              box-shadow 0.35s cubic-bezier(0.32, 0.72, 0, 1),
+              border-color 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.tour-card-shell:hover {
+  transform: scale(1.018);
+  box-shadow: 0 16px 48px rgba(17, 29, 51, 0.35),
+              0 4px 16px rgba(200, 150, 62, 0.12);
+  border-color: rgba(200, 150, 62, 0.28) !important;
+}
+
+/* Image zoom inside card on hover — overflow:hidden is on the image wrapper */
+.tour-card-image {
+  transition: transform 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.tour-card-shell:hover .tour-card-image {
+  transform: scale(1.05);
+}
+
+/* Gold accent line that animates width 0 → 100% on hover */
+.tour-card-accent-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #C8963E;
+  transition: width 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.tour-card-shell:hover .tour-card-accent-line {
+  width: 100%;
+}
+
+/* Testimonial card hover — lighter treatment */
+.testimonial-card-shell {
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1),
+              box-shadow 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.testimonial-card-shell:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(27, 42, 74, 0.1);
+}
+
+/* ─── CTA Button micro-interactions ──────────────────────────────────────── */
+/*
+ * Applied to gold CTA buttons. These enhance the existing inline
+ * onMouseEnter/Leave handlers already in Header.tsx and page.tsx
+ * with CSS-layer active states and arrow icon movement.
+ */
+
+.btn-gold {
+  transition: background-color 0.3s cubic-bezier(0.32, 0.72, 0, 1),
+              transform 0.25s cubic-bezier(0.32, 0.72, 0, 1),
+              box-shadow 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.btn-gold:hover {
+  transform: translateY(-1px);
+}
+
+.btn-gold:active {
+  transform: scale(0.98) translateY(0);
+}
+
+/* Arrow icon inside button — translateX on parent hover */
+.btn-gold:hover .btn-arrow-icon {
+  transform: translateX(2px);
+}
+
+.btn-arrow-icon {
+  transition: transform 0.25s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Navy outline secondary CTA */
+.btn-outline-cream:hover {
+  transform: translateY(-1px);
+  background-color: rgba(245, 240, 232, 0.08) !important;
+}
+
+.btn-outline-cream:active {
+  transform: scale(0.98);
+}
+
+/* ─── Section dividers — gold hairlines between major sections ────────────── */
+/*
+ * Thin decorative rules. Placed via .section-divider wrapper elements
+ * in the page markup. Uses a centered gradient rule with flanking dots.
+ */
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.section-divider-rule {
+  flex: 1;
+  height: 1px;
+  max-width: 120px;
+  background: linear-gradient(
+    to var(--rule-dir, right),
+    transparent 0%,
+    rgba(200, 150, 62, 0.35) 100%
+  );
+}
+
+.section-divider-rule:last-child {
+  --rule-dir: left;
+}
+
+.section-divider-ornament {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: rgba(200, 150, 62, 0.5);
+  flex-shrink: 0;
+}
+
+/* Variant for dark (navy) sections */
+.section-divider-dark .section-divider-rule {
+  background: linear-gradient(
+    to var(--rule-dir, right),
+    transparent 0%,
+    rgba(200, 150, 62, 0.25) 100%
+  );
+}
+
+.section-divider-dark .section-divider-ornament {
+  background-color: rgba(200, 150, 62, 0.4);
+}
+
+/* ─── Footer Component Styles (Server Component — no event handlers) ────────── */
+.footer-root {
+  background-color: #111d33;
+  color: #F5F0E8;
+  border-top: 1px solid rgba(200, 150, 62, 0.2);
+}
+
+.footer-gold-text {
+  color: #C8963E;
+  font-family: var(--font-source-sans), 'Source Sans 3', sans-serif;
+}
+
+.footer-heading {
+  color: #F5F0E8;
+  letter-spacing: -0.02em;
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+}
+
+.footer-muted-text {
+  /* Raised from 0.6 to 0.75 — passes WCAG AA against #111d33 navy */
+  color: rgba(245, 240, 232, 0.75);
+  font-family: var(--font-source-sans), 'Source Sans 3', sans-serif;
+}
+
+.footer-contact-link {
+  color: rgba(245, 240, 232, 0.7);
+  font-family: var(--font-source-sans), 'Source Sans 3', sans-serif;
+  transition: color 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.footer-contact-link:hover {
+  color: #C8963E;
+}
+
+.footer-icon {
+  color: #C8963E;
+}
+
+.footer-nav-link {
+  color: rgba(245, 240, 232, 0.65);
+  font-family: var(--font-source-sans), 'Source Sans 3', sans-serif;
+  transition: color 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.footer-nav-link:hover {
+  color: #F5F0E8;
+}
+
+.footer-trust-border {
+  border-top: 1px solid rgba(200, 150, 62, 0.12);
+}
+
+.footer-trust-text {
+  /* Raised from 0.4 to 0.65 — passes WCAG AA against #111d33 navy */
+  color: rgba(245, 240, 232, 0.65);
+  font-family: var(--font-source-sans), 'Source Sans 3', sans-serif;
+}
+
+.footer-bottom-border {
+  border-top: 1px solid rgba(200, 150, 62, 0.1);
+}
+
+.footer-copyright {
+  /* Raised from 0.35 to 0.65 — passes WCAG AA against #111d33 navy */
+  color: rgba(245, 240, 232, 0.65);
+  font-family: var(--font-source-sans), 'Source Sans 3', sans-serif;
 }

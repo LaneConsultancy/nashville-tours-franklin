@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nashvilletoursfranklin.com/sitemap.xml
