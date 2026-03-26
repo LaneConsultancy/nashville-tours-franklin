@@ -316,7 +316,7 @@ export default function HomePage() {
         />
 
         {/* Content — hard left, vertically centred on desktop / bottom on mobile */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 pb-16 pt-36 lg:py-0">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 pb-16 pt-28 lg:pt-28">
           <div className="flex items-start gap-6 lg:gap-8">
             {/* Vertical gold rule — decorative, desktop only */}
             <div
@@ -433,7 +433,7 @@ export default function HomePage() {
                 style={{
                   fontFamily:
                     "var(--font-source-sans), 'Source Sans 3', sans-serif",
-                  color: "rgba(245, 240, 232, 0.3)",
+                  color: "rgba(245, 240, 232, 0.6)",
                 }}
               >
                 Licensed tour operator &mdash; locally owned &amp; operated
